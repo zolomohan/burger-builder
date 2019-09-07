@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Ingredient from './Ingredient';
+import classes from '../styles/Burger.module.css';
 
 export default function Burger() {
 	return (
-		<Fragment>
+		<div className={classes.Burger}>
 			<Ingredient type='bread-top' />
-			<Ingredient />
-		</Fragment>
+				<Ingredient type='cheese' />
+				<Ingredient type='meat' />
+			<Ingredient type='bread-bottom'/>
+		</div>
 	);
 }
