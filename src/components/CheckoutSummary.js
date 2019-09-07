@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import Button from './Button'
 
 export default function CheckoutSummary({ show, price, ingredients, toggleCheckoutSummary }) {
 	const ingredientsKeys = Object.keys(ingredients);
@@ -16,8 +17,8 @@ export default function CheckoutSummary({ show, price, ingredients, toggleChecko
 			</ul>
 			<p>Price: $ {price}</p>
 			<p>Continue to Checkout?</p>
-			<button onClick={toggleCheckoutSummary}>Continue</button>
-			<button onClick={toggleCheckoutSummary}>Cancel</button>
+			<Button onClick={toggleCheckoutSummary} type='Success'>Continue</Button>
+			<Button onClick={toggleCheckoutSummary} type='Danger'>Cancel</Button>
 		</Modal>
 	);
 }
