@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import Burger from './Burger';
 import BurgerControl from './BurgerControl';
+import { INGREDIENT_PRICES } from '../helpers/constants';
 
 export default class BurgerBuilder extends Component {
 	state = {
+		price       : 4,
 		ingredients : {
 			salad  : 0,
 			bacon  : 0,
@@ -17,16 +19,16 @@ export default class BurgerBuilder extends Component {
 			...this.state.ingredients
 		};
 		ingredients[type] = this.state.ingredients[type] + 1;
-		this.setState({ ingredients });
+		this.setState({ ingredients, price: Math.round((this.state.price + INGREDIENT_PRICES[type]) * 10) / 10  });
 	};
 
 	removeIngredient = (type) => {
-		const ingredients = {
-			...this.state.ingredients
-		};
-		if(this.state.ingredients[type] > 0){
+		if (this.state.ingredients[type] > 0) {
+			const ingredients = {
+				...this.state.ingredients
+			};
 			ingredients[type] = this.state.ingredients[type] - 1;
-			this.setState({ ingredients });
+			this.setState({ ingredients, price: Math.round((this.state.price - INGREDIENT_PRICES[type]) * 10) / 10 });
 		}
 	};
 
