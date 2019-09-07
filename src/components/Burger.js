@@ -5,7 +5,7 @@ export default function Burger() {
 	return (
 		<Fragment>
 			<Ingredient type='bread-top' />
-			<Ingredient type='bread-bottom' />
+			<Ingredient />
 		</Fragment>
 	);
 }
