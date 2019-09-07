@@ -19,7 +19,7 @@ export default class BurgerBuilder extends Component {
 			...this.state.ingredients
 		};
 		ingredients[type] = this.state.ingredients[type] + 1;
-		this.setState({ ingredients, price: Math.round((this.state.price + INGREDIENT_PRICES[type]) * 10) / 10  });
+		this.setState({ ingredients, price: this.state.price + INGREDIENT_PRICES[type]});
 	};
 
 	removeIngredient = (type) => {
@@ -28,7 +28,7 @@ export default class BurgerBuilder extends Component {
 				...this.state.ingredients
 			};
 			ingredients[type] = this.state.ingredients[type] - 1;
-			this.setState({ ingredients, price: Math.round((this.state.price - INGREDIENT_PRICES[type]) * 10) / 10 });
+			this.setState({ ingredients, price: this.state.price - INGREDIENT_PRICES[type]});
 		}
 	};
 
@@ -37,6 +37,7 @@ export default class BurgerBuilder extends Component {
 			<Fragment>
 				<Burger ingredients={this.state.ingredients} />
 				<BurgerControl
+					price={this.state.price}
 					ingredients={this.state.ingredients}
 					addIngredient={this.addIngredient}
 					removeIngredient={this.removeIngredient}

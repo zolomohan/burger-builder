@@ -1,9 +1,10 @@
 import React from 'react';
 import IngredientControl from './IngredientControl';
 import classes from '../styles/BurgerControl.module.css';
-export default function BugerControl({ ingredients, addIngredient, removeIngredient }) {
+export default function BugerControl({ ingredients, price, addIngredient, removeIngredient }) {
 	return (
 		<div className={classes.BurgerControl}>
+			<p>Price: <strong>{price.toFixed(2)}</strong></p>
 			{Object.keys(ingredients).map((ingredient, i) => (
 				<IngredientControl
 					key={ingredient + i}
