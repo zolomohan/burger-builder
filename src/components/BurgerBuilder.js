@@ -37,7 +37,7 @@ export default class BurgerBuilder extends Component {
 			<Fragment>
 				<Burger ingredients={this.state.ingredients} />
 				<BurgerControl
-					ingredients={Object.keys(this.state.ingredients)}
+					ingredients={this.state.ingredients}
 					addIngredient={this.addIngredient}
 					removeIngredient={this.removeIngredient}
 				/>
