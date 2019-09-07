@@ -21,7 +21,12 @@ export default function BugerControl({
 					disableRemove={ingredients[ingredient] <= 0}
 				/>
 			))}
-			<button className={classes.CheckoutButton}>Checkout</button>
+			<button
+				className={classes.CheckoutButton}
+				disabled={Object.values(ingredients).reduce((acc, val) => acc + val) === 0}
+			>
+				Checkout
+			</button>
 		</div>
 	);
 }
