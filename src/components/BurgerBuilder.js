@@ -7,8 +7,26 @@ export default class BurgerBuilder extends Component {
 		ingredients : {
 			salad  : 0,
 			bacon  : 0,
-			cheese : 1,
-			meat   : 1
+			cheese : 0,
+			meat   : 0
+		}
+	};
+
+	addIngredient = (type) => {
+		const ingredients = {
+			...this.state.ingredients
+		};
+		ingredients[type] = this.state.ingredients[type] + 1;
+		this.setState({ ingredients });
+	};
+
+	removeIngredient = (type) => {
+		const ingredients = {
+			...this.state.ingredients
+		};
+		if(this.state.ingredients[type] > 0){
+			ingredients[type] = this.state.ingredients[type] - 1;
+			this.setState({ ingredients });
 		}
 	};
 
@@ -16,7 +34,11 @@ export default class BurgerBuilder extends Component {
 		return (
 			<Fragment>
 				<Burger ingredients={this.state.ingredients} />
-				<BurgerControl ingredients={Object.keys(this.state.ingredients)}/>
+				<BurgerControl
+					ingredients={Object.keys(this.state.ingredients)}
+					addIngredient={this.addIngredient}
+					removeIngredient={this.removeIngredient}
+				/>
 			</Fragment>
 		);
 	}
