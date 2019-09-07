@@ -41,6 +41,7 @@ export default class BurgerBuilder extends Component {
 			<Fragment>
 				{this.state.checkoutSummary && (
 					<CheckoutSummary
+						show={this.state.checkoutSummary}
 						price={this.state.price}
 						ingredients={this.state.ingredients}
 						toggleCheckoutSummary={this.toggleCheckoutSummary}

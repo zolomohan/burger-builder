@@ -1,10 +1,10 @@
 import React from 'react';
 import Modal from './Modal';
 
-export default function CheckoutSummary({ price, ingredients, toggleCheckoutSummary }) {
+export default function CheckoutSummary({ show, price, ingredients, toggleCheckoutSummary }) {
 	const ingredientsKeys = Object.keys(ingredients);
 	return (
-		<Modal>
+		<Modal show={show} closeModal={toggleCheckoutSummary}>
 			<h3>Your Order</h3>
 			<p>Your Delicious Burger with the following ingrediets: </p>
 			<ul>
