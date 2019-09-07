@@ -5,8 +5,9 @@ import { INGREDIENT_PRICES } from '../helpers/constants';
 import CheckoutSummary from './CheckoutSummary';
 export default class BurgerBuilder extends Component {
 	state = {
-		price       : 4,
-		ingredients : {
+		price           : 4,
+		checkoutSummary : false,
+		ingredients     : {
 			salad  : 0,
 			bacon  : 0,
 			cheese : 0,
@@ -19,7 +20,7 @@ export default class BurgerBuilder extends Component {
 			...this.state.ingredients
 		};
 		ingredients[type] = this.state.ingredients[type] + 1;
-		this.setState({ ingredients, price: this.state.price + INGREDIENT_PRICES[type]});
+		this.setState({ ingredients, price: this.state.price + INGREDIENT_PRICES[type] });
 	};
 
 	removeIngredient = (type) => {
@@ -28,17 +29,26 @@ export default class BurgerBuilder extends Component {
 				...this.state.ingredients
 			};
 			ingredients[type] = this.state.ingredients[type] - 1;
-			this.setState({ ingredients, price: this.state.price - INGREDIENT_PRICES[type]});
+			this.setState({ ingredients, price: this.state.price - INGREDIENT_PRICES[type] });
 		}
 	};
+
+	toggleCheckoutSummary = () =>
+		this.setState((state) => ({ checkoutSummary: !state.checkoutSummary }));
 
 	render() {
 		return (
 			<Fragment>
-				<CheckoutSummary ingredients={this.state.ingredients} />
+				{this.state.checkoutSummary && (
+					<CheckoutSummary
+						ingredients={this.state.ingredients}
+						toggleCheckoutSummary={this.toggleCheckoutSummary}
+					/>
+				)}
 				<Burger ingredients={this.state.ingredients} />
 				<BurgerControl
 					price={this.state.price}
+					toggleCheckoutSummary={this.toggleCheckoutSummary}
 					ingredients={this.state.ingredients}
 					addIngredient={this.addIngredient}
 					removeIngredient={this.removeIngredient}

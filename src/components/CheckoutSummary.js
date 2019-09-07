@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './Modal';
 
-export default function CheckoutSummary({ ingredients }) {
+export default function CheckoutSummary({ ingredients, toggleCheckoutSummary }) {
 	const ingredientsKeys = Object.keys(ingredients);
 	return (
 		<Modal>
@@ -9,12 +9,14 @@ export default function CheckoutSummary({ ingredients }) {
 			<p>Your Delicious Burger with the following ingrediets: </p>
 			<ul>
 				{ingredientsKeys.map((ingredient) => (
-					<li key={ingredient} style={{textTransform: 'capitalize'}}>
+					<li key={ingredient} style={{ textTransform: 'capitalize' }}>
 						{ingredient}: {ingredients[ingredient]}
 					</li>
 				))}
 			</ul>
 			<p>Continue to Checkout?</p>
+			<button onClick={toggleCheckoutSummary}>Continue</button>
+			<button onClick={toggleCheckoutSummary}>Cancel</button>
 		</Modal>
 	);
 }

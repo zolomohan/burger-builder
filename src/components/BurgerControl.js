@@ -5,7 +5,8 @@ export default function BugerControl({
 	ingredients,
 	price,
 	addIngredient,
-	removeIngredient
+	removeIngredient,
+	toggleCheckoutSummary
 }) {
 	return (
 		<div className={classes.BurgerControl}>
@@ -24,6 +25,7 @@ export default function BugerControl({
 			<button
 				className={classes.CheckoutButton}
 				disabled={Object.values(ingredients).reduce((acc, val) => acc + val) === 0}
+				onClick={toggleCheckoutSummary}
 			>
 				Checkout
 			</button>
