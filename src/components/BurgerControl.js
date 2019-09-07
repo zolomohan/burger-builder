@@ -11,7 +11,7 @@ export default function BugerControl({
 	return (
 		<div className={classes.BurgerControl}>
 			<p>
-				Price: <strong>{price.toFixed(2)}</strong>
+				Price: <strong>$ {price.toFixed(2)}</strong>
 			</p>
 			{Object.keys(ingredients).map((ingredient, i) => (
 				<IngredientControl
