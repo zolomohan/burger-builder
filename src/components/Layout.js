@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Navbar from './Navbar';
+import classes from '../styles/Layout.module.css';
 
 export default ({ children }) => {
-	return <main>{children}</main>;
-}
+	return (
+		<Fragment>
+			<Navbar />
+			<main className={classes.Container}>{children}</main>
+		</Fragment>
+	);
+};
