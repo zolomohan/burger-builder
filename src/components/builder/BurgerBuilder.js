@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import Burger from './Burger';
-import BurgerControl from './BurgerControl';
-import { INGREDIENT_PRICES } from '../helpers/constants';
-import CheckoutSummary from './CheckoutSummary';
+import Burger from 'components/builder/Burger';
+import BurgerControl from 'components/builder/BurgerControl';
+import { INGREDIENT_PRICES } from 'helpers/constants';
+import CheckoutSummary from 'components/builder/CheckoutSummary';
 export default class BurgerBuilder extends Component {
 	state = {
 		price           : 4,

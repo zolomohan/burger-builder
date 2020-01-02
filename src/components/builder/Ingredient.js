@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from '../styles/BurgerIngredient.module.css';
+import classes from 'styles/BurgerIngredient.module.css';
 
 export default function Ingredient(props) {
 	switch (props.type) {

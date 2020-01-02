@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from '../styles/IngredientControl.module.css';
+import classes from 'styles/IngredientControl.module.css';
 
 export default function IngredientControl({name,disableRemove, addIngredient, removeIngredient}) {
 	return (

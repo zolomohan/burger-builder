@@ -1,6 +1,6 @@
 import React from 'react';
-import Ingredient from './Ingredient';
-import classes from '../styles/Burger.module.css';
+import Ingredient from 'components/builder/Ingredient';
+import classes from 'styles/Burger.module.css';
 
 export default function Burger({ ingredients }) {
 	let displayIngredients = Object.keys(ingredients).map((ingredient) =>
