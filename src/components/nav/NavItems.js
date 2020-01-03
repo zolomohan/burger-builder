@@ -1,12 +1,14 @@
-import React from 'react'
-import NavItem from 'components/nav/NavItem';
+import React from 'react';
+import NavLink from 'components/nav/NavLink';
 import classes from 'styles/NavItems.module.css';
 
 export default function NavItems() {
-  return (
-    <ul className={classes.navItems}>
-      <NavItem link="/" active>Burger Builder</NavItem>
-      <NavItem link="/">Checkout</NavItem>
-    </ul>
-  )
+	return (
+		<ul className={classes.navItems}>
+			<NavLink link='/' active>
+				Burger Builder
+			</NavLink>
+			<NavLink link='/'>Checkout</NavLink>
+		</ul>
+	);
 }
