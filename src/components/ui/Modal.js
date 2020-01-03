@@ -5,7 +5,7 @@ import Backdrop from 'components/ui/Backdrop';
 export default function Modal({ children, show, closeModal }) {
 	return (
 		<Fragment>
-			<Backdrop show={show} closeModal={closeModal}/>
+			<Backdrop show={show} close={closeModal}/>
 			<div className={classes.Modal}>{children}</div>
 		</Fragment>
 	);
